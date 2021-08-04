@@ -7,7 +7,7 @@ const partialspath = path.join(__dirname,'../templates/partials')
 const request = require('request')
 const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
-
+const port = process.env.PORT || 3000
 app.set('view engine','hbs')
 hbs.registerPartials(partialspath)
 app.set('views',viewpath)
@@ -69,6 +69,6 @@ app.get('/weather',(req,res) => {
 app.get('/*',(req,res) => {
     res.send('my 404 page')
 })
-app.listen(3000,() => {
-    console.log('server is up on port 3000')
+app.listen(port,() => {
+    console.log('server is up on port '+port)
 })
